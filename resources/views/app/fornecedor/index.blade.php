@@ -21,7 +21,7 @@
 
 
 
-{{-- @if(count($fornecedores) > 0 && count($fornecedores) < 10 )
+{{-- @if(count($fornecedores) > 0 && count($fornecedores) < 10 )////
     <h3> Existem alguns fornecedores cadastrados</h3>
 @elseif(count($fornecedores) >= 10)
     <h3> Existem muitos fornecedores cadastrados</h3>
@@ -30,16 +30,23 @@
 @endif --}}
 
 
-<br>
+@isset($fornecedores)
 <br>
 Fornecedor: {{ $fornecedores[0]['nome'] }}
 <br>
 Status:{{ $fornecedores[0]['status'] }}
+<br>
+    @isset($fornecedores[0]['cnpj'])
+        cnpj:{{ $fornecedores[0]['cnpj'] }}
+    @endisset
+@endisset
 
-@if( !($fornecedores[01]['status'] == 'S') )
+
+
+{{-- @if( !($fornecedores[01]['status'] == 'S') )
     Fornecedor inativo
 @endif    
 
 @unless ($fornecedores[0]['status'] == 'S')
     Fornecedor inativo
-@endunless
+@endunless --}}
