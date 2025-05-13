@@ -36,7 +36,7 @@ Fornecedor: {{ $fornecedores[0]['nome'] }}
 <br>
 Status:{{ $fornecedores[0]['status'] }}
 
-@if( !($fornecedores[0]['status'] == 'S') )
+@if( !($fornecedores[01]['status'] == 'S') )
     Fornecedor inativo
 @endif    
 
