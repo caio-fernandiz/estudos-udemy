@@ -30,7 +30,7 @@
 @endif --}}
 
 
-<br>
+{{-- <br>
 <br>
 Fornecedor: {{ $fornecedores[0]['nome'] }}
 <br>
@@ -42,4 +42,16 @@ Status:{{ $fornecedores[0]['status'] }}
 
 @unless ($fornecedores[0]['status'] == 'S')
     Fornecedor inativo
-@endunless
+@endunless --}}
+
+<br>
+<br>
+@isset($fornecedores)
+Fornecedor: {{ $fornecedores[1]['nome'] }}
+<br>
+Status:{{ $fornecedores[1]['status'] }}
+<br>
+    @isset($fornecedores[1]['cnpj'])
+    CNPJ:{{ $fornecedores[1]['cnpj'] }}
+    @endisset
+@endisset
