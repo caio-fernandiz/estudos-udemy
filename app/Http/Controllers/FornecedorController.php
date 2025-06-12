@@ -19,6 +19,9 @@ class FornecedorController extends Controller
                 'cnpj'=>'232323' 
             ],
         ];
+
+        echo ($fornecedores[0]['cnpj']) ? 'cnpj encontrado' : 'cnpj não encontrado';
+
         return view('app.fornecedor.index', compact('fornecedores'));
     }
 }
