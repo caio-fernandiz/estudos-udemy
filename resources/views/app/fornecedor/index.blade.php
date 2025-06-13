@@ -129,7 +129,8 @@ Status:{{ $fornecedores[0]['status'] }}
 @isset($fornecedores)
         
     @forelse ($fornecedores as $i => $fornecedor)
-        
+        Iteração atual: {{ $loop->iteration }}
+        <br>
         Fornecedor: {{ $fornecedor['nome'] }}
         <br>
         Status:{{ $fornecedor['status'] }}
@@ -137,6 +138,9 @@ Status:{{ $fornecedores[0]['status'] }}
         CNPJ:{{ $fornecedor['cnpj'] ?? 'CNPJ não informado' }}
         <br>
         Telefone:({{ $fornecedor['ddd'] ?? 'ddd não informado' }}) {{ $fornecedor['telefone'] ?? 'telefone não informado' }}
+        <br>
+        
+        
         @switch($fornecedor['ddd'])
             @case('11')
                 São Paulo - SP
@@ -147,10 +151,18 @@ Status:{{ $fornecedores[0]['status'] }}
             @default
             Estado não identificado	
         @endswitch
-
+        <br>
+        <br>
+        @if($loop->first)
+            Primeira iteração do loop
+        @endif
+        @if($loop->last)
+            Última iteração do loop
+        @endif
         <hr>
         @empty
         Não existem fornecedores cadastrados
+        
         
     @endforelse
 @endisset
