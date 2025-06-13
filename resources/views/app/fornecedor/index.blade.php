@@ -46,7 +46,7 @@ Status:{{ $fornecedores[0]['status'] }}
 
 <br>
 <br>
-
+{{-- 
 @isset($fornecedores)
     @for($i = 0; isset($fornecedores[$i]); $i++)    
         Fornecedor: {{ $fornecedores[$i]['nome'] }}
@@ -69,6 +69,61 @@ Status:{{ $fornecedores[0]['status'] }}
 
         <hr>
     @endfor
+@endisset --}}
+
+{{-- @isset($fornecedores)
+    @php $i = 0 @endphp
+    @while (isset($fornecedores[$i]))
+        
+        
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br>
+        Status:{{ $fornecedores[$i]['status'] }}
+        <br>
+        CNPJ:{{ $fornecedores[$i]['cnpj'] ?? 'CNPJ não informado' }}
+        <br>
+        Telefone:({{ $fornecedores[$i]['ddd'] ?? 'ddd não informado' }}) {{ $fornecedores[$i]['telefone'] ?? 'telefone não informado' }}
+        @switch($fornecedores[$i]['ddd'])
+            @case('11')
+                São Paulo - SP
+                @break
+            @case('47')
+                Santa Catarina - SC
+                @break
+            @default
+            Estado não identificado	
+        @endswitch
+
+        <hr>
+        @php $i++ @endphp
+    @endwhile
+@endisset
+ --}}
+
+ @isset($fornecedores)
+        
+    @foreach ($fornecedores as $i => $fornecedor)
+        
+        Fornecedor: {{ $fornecedor['nome'] }}
+        <br>
+        Status:{{ $fornecedor['status'] }}
+        <br>
+        CNPJ:{{ $fornecedor['cnpj'] ?? 'CNPJ não informado' }}
+        <br>
+        Telefone:({{ $fornecedor['ddd'] ?? 'ddd não informado' }}) {{ $fornecedor['telefone'] ?? 'telefone não informado' }}
+        @switch($fornecedor['ddd'])
+            @case('11')
+                São Paulo - SP
+                @break
+            @case('47')
+                Santa Catarina - SC
+                @break
+            @default
+            Estado não identificado	
+        @endswitch
+
+        <hr>
+    @endforeach 
 @endisset
 
 {{-- @isset($fornecedores)
