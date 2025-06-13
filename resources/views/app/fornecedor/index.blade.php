@@ -48,24 +48,27 @@ Status:{{ $fornecedores[0]['status'] }}
 <br>
 
 @isset($fornecedores)
-    Fornecedor: {{ $fornecedores[2]['nome'] }}
-    <br>
-    Sta tus:{{ $fornecedores[2]['status'] }}
-    <br>
-    CNPJ:{{ $fornecedores[2]['cnpj'] ?? 'CNPJ não informado' }}
-    <br>
-    Telefone:({{ $fornecedores[1]['ddd'] ?? 'ddd não informado' }}) {{ $fornecedores[1]['telefone'] ?? 'telefone não informado' }}
-    @switch($fornecedores[2]['ddd'])
-        @case('11')
-            São Paulo - SP
-            @break
-        @case('47')
-            Santa Catarina - SC
-            @break
-        @default
-        Estado não identificado	
-            
-    @endswitch
+    @for($i = 0; isset($fornecedores[$i]); $i++)    
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br>
+        Status:{{ $fornecedores[$i]['status'] }}
+        <br>
+        CNPJ:{{ $fornecedores[$i]['cnpj'] ?? 'CNPJ não informado' }}
+        <br>
+        Telefone:({{ $fornecedores[$i]['ddd'] ?? 'ddd não informado' }}) {{ $fornecedores[$i]['telefone'] ?? 'telefone não informado' }}
+        @switch($fornecedores[$i]['ddd'])
+            @case('11')
+                São Paulo - SP
+                @break
+            @case('47')
+                Santa Catarina - SC
+                @break
+            @default
+            Estado não identificado	
+        @endswitch
+
+        <hr>
+    @endfor
 @endisset
 
 {{-- @isset($fornecedores)
