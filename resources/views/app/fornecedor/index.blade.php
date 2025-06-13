@@ -99,7 +99,7 @@ Status:{{ $fornecedores[0]['status'] }}
     @endwhile
 @endisset
  --}}
-
+{{-- 
  @isset($fornecedores)
         
     @foreach ($fornecedores as $i => $fornecedor)
@@ -124,6 +124,35 @@ Status:{{ $fornecedores[0]['status'] }}
 
         <hr>
     @endforeach 
+@endisset --}}
+
+@isset($fornecedores)
+        
+    @forelse ($fornecedores as $i => $fornecedor)
+        
+        Fornecedor: {{ $fornecedor['nome'] }}
+        <br>
+        Status:{{ $fornecedor['status'] }}
+        <br>
+        CNPJ:{{ $fornecedor['cnpj'] ?? 'CNPJ não informado' }}
+        <br>
+        Telefone:({{ $fornecedor['ddd'] ?? 'ddd não informado' }}) {{ $fornecedor['telefone'] ?? 'telefone não informado' }}
+        @switch($fornecedor['ddd'])
+            @case('11')
+                São Paulo - SP
+                @break
+            @case('47')
+                Santa Catarina - SC
+                @break
+            @default
+            Estado não identificado	
+        @endswitch
+
+        <hr>
+        @empty
+        Não existem fornecedores cadastrados
+        
+    @endforelse
 @endisset
 
 {{-- @isset($fornecedores)
