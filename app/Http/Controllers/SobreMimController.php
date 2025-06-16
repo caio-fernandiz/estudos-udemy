@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class SobreMimController extends Controller
 {
     public function sobreMim() {
-        return view('site.views.sobremim');
+        return view('site.sobremim');
     }
 }
