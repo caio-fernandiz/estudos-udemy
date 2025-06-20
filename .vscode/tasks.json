@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Laravel Docs",
+            "type": "shell",
+            "command": "start https://laravel.com/docs/12.x/installation",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Composer Docs",
+            "type": "shell",
+            "command": "start https://getcomposer.org/doc/",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Nuxt Docs",
+            "type": "shell",
+            "command": "start https://nuxt.com/docs/getting-started/introduction",
+            "problemMatcher": [],
+        }
+    ]
+}
