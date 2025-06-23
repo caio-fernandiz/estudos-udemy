@@ -18,7 +18,7 @@ class AlterFornecedoresNovasColunas extends Migration
             $table->string('nome', 50);
             $table->string('uf',2);
             $table->string('email',150);
-            
+
              
         });
     }
@@ -32,4 +32,4 @@ class AlterFornecedoresNovasColunas extends Migration
     {
         //
     }
-}
+} 
