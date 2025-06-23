@@ -33,3 +33,4 @@ class AlterFornecedoresNovasColunas extends Migration
         //
     }
 } 
+ 
