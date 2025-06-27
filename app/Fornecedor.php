@@ -8,5 +8,5 @@ class Fornecedor extends Model
 {
     //
      protected $table = 'fornecedores';
-     protected $filable = ['nome', 'site', 'uf', 'email'];
+     protected $fillable = ['nome', 'site', 'uf', 'email']; //
 }
